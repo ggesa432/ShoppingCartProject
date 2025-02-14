@@ -47,10 +47,10 @@ const CheckoutPage = ({ userId }) => {
     calculateTotals();
   }, [userId, cart]);
 
-  // ✅ Prevent multiple notifications
+  //  Prevent multiple notifications
   useEffect(() => {
     if (userId) {
-      // ✅ Prevent duplicate notifications using localStorage
+      //  Prevent duplicate notifications using localStorage
       const hasNotified = localStorage.getItem(`notified_checkout_${userId}`);
       
       if (!hasNotified) {
@@ -61,7 +61,7 @@ const CheckoutPage = ({ userId }) => {
           link: '/checkout'
         });
 
-        // ✅ Mark notification as sent
+        //  Mark notification as sent
         localStorage.setItem(`notified_checkout_${userId}`, 'true');
       }
     }
@@ -142,7 +142,7 @@ const CheckoutPage = ({ userId }) => {
     <div className="checkout-page">
       <h1>Checkout Page</h1>
 
-      {/* ✅ Show Loading Indicator */}
+      {/*  Show Loading Indicator */}
       {loading ? (
         <p>Loading user details...</p>
       ) : (

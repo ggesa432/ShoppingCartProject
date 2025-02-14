@@ -36,7 +36,7 @@ const CartPage = ({ userId }) => {
 
   
 
-  // ✅ Prevent infinite loop by ensuring the function only runs when dependencies change
+  //  Prevent infinite loop by ensuring the function only runs when dependencies change
   useEffect(() => {
     if (cart.length > 0) {
       const notifiedKey = `notified_cart_${userId}`;

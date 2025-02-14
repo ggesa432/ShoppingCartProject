@@ -11,7 +11,7 @@ const ProductPage = ({ user }) => {
 
   useEffect(() => {
     if (user) {
-      // ✅ Check if the notification was already sent
+      //  Check if the notification was already sent
       const hasNotified = localStorage.getItem(`notified_product_${user._id}`);
       
       if (!hasNotified) {
@@ -22,13 +22,13 @@ const ProductPage = ({ user }) => {
           link: '/products'
         });
 
-        // ✅ Mark as sent to prevent duplicate notifications
+        //  Mark as sent to prevent duplicate notifications
         localStorage.setItem(`notified_product_${user._id}`, 'true');
       }
     }
   }, [user, addNotification]);
 
-  // ✅ Fetch Products
+  //  Fetch Products
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -47,7 +47,7 @@ const ProductPage = ({ user }) => {
     fetchProducts();
   }, []);
 
-  // ✅ Add Product (Admin Only)
+  //  Add Product (Admin Only)
   const addProduct = async (newProduct) => {
     try {
       const response = await fetch('http://localhost:5000/api/products', {
@@ -74,7 +74,7 @@ const ProductPage = ({ user }) => {
     }
   };
 
-  // ✅ Add to Cart
+  //  Add to Cart
   const addToCart = async (product) => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
     const userId = storedUser?.userId || 'guest';  // ✅ Use correct userId
