@@ -1,0 +1,101 @@
+/* Reorder Page Styles */
+.reorder-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.reorder-page h1 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Error Message */
+.error {
+    color: red;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Order Container */
+.order-item {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Order Header */
+.order-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Order Details */
+.order-details {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Item List */
+.order-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.order-details li {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Total Price */
+.order-details p {
+    font-weight: bold;
+    color: #222;
+    margin-top: 10px;
+}
+
+/* Order Buttons */
+.order-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.order-buttons button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Merge to Cart Button */
+.order-buttons button:first-child {
+    background-color: #28a745;
+    color: white;
+}
+
+.order-buttons button:first-child:hover {
+    background-color: #218838;
+}
+
+/* Replace Cart Button */
+.order-buttons button:last-child {
+    background-color: #dc3545;
+    color: white;
+}
+
+.order-buttons button:last-child:hover {
+    background-color: #c82333;
+}

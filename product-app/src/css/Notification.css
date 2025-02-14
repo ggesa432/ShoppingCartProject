@@ -1,0 +1,67 @@
+/* 📌 Notifications Container */
+.notifications-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* 🔔 Notification Bell Icon */
+.notification-icon {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.notification-icon:hover {
+  color: #ff9800;
+}
+
+/* 🔴 Notification Badge (Count) */
+.notification-count {
+  background-color: red;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 3px 7px;
+  position: absolute;
+  top: -5px;
+  right: -10px;
+}
+
+
+/* 🔔 Notification Item */
+.notification-item {
+  background-color: #f8f9fa; /* Light gray background */
+  color: #333; /* Dark text */
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.notification-item:hover {
+  background-color: #e9ecef; /* Slightly darker gray on hover */
+}
+
+/* 📝 No Notifications Message */
+.notification-dropdown {
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  width: 250px;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 100;
+}
+.no-notifications {
+  color: #777;
+  text-align: center;
+  padding: 10px;
+}

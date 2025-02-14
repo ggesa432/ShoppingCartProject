@@ -1,0 +1,113 @@
+.recent-orders-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .order-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .order-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .order-details ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .order-details ul li {
+    margin: 5px 0;
+  }
+  
+  .total-price {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .order-buttons {
+    margin-top: 15px;
+  }
+  
+  .cancel-button {
+    background-color: #ff6666;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .cancel-button:hover {
+    background-color: #ff4d4d;
+  }
+  
+  .delivered-badge {
+    background-color: #4caf50;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  .cancelled-badge {
+    background-color: #ffcc00;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+.status-badge {
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 3px;
+  }
+  
+  .status-badge.delivered {
+    background-color: green;
+    color: white;
+  }
+  
+  .status-badge.pending {
+    background-color: orange;
+    color: white;
+  }
+  .status-badge.cancelled {
+    background-color: red;
+    color: white;
+  }
+
+  .user-info {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .user-info h2 {
+    margin-top: 0;
+  }
+  .download-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  
+  .download-button:hover {
+    background-color: #0056b3;
+  }
+  
+
+  

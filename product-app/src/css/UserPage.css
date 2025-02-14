@@ -1,0 +1,35 @@
+.user-page {
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 40px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-page h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .user-details {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-details p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .user-details p strong {
+    font-weight: bold;
+    color: #222;
+  }
+  
