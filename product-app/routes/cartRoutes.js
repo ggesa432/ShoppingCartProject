@@ -4,6 +4,7 @@ const Order = require('../models/orderModel');
 const User = require('../models/userModel');
 const Coupon = require('../models/couponModel');
 const sendEmail = require('../src/components/sendEmail');
+const protect = require('../middleware/authMiddleware');
 const router = express.Router();
 
 // Add item to cart
@@ -38,7 +39,11 @@ router.post('/add', async (req, res) => {
 // Fetch cart items
 router.get('/:userId', async (req, res) => {
   try {
-    const { userId } = req.params;
+    if (req.user.id !== req.params.userId) {
+      return res.status(403).json({ message: 'Unauthorized' });
+    }
+
+     const { userId } = req.params;
     const cart = await Cart.findOne({ userId });
     if (cart) {
       res.status(200).json(cart);
