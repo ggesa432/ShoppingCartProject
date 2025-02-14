@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import '../css/ReorderPage.css';
 
-const ReorderPage = ({ userId }) => {
+const ReorderPage = ({ userId: propUserId }) => {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState('');
+
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const userId = propUserId || storedUser?.user?.id;
+
+  
 
   useEffect(() => {
     const fetchOrders = async () => {

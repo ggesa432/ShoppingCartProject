@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 import { jsPDF } from 'jspdf';
 import { useNotification } from '../components/NotificationContext';
 import '../css/RecentOrdersPage.css';
 
-const RecentOrdersPage = ({ userId }) => {
+const RecentOrdersPage = ({ userId: propUserId }) => {
   const [orders, setOrders] = useState([]);
   const [userDetails, setUserDetails] = useState(null);
   const [error, setError] = useState('');
   const { addNotification } = useNotification();
+  const navigate = useNavigate();
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const userId = propUserId || storedUser?.user?.id;
 
   useEffect(() => {
     // Fetch user details
@@ -64,7 +67,7 @@ const RecentOrdersPage = ({ userId }) => {
           userId,
           message: `Order #${orderId} has been canceled`,
           type: 'dynamic',
-          link: `/orders/${orderId}`
+          link: `/order/${orderId}`
         });
       } else {
         alert('Failed to cancel order');
@@ -159,6 +162,15 @@ const RecentOrdersPage = ({ userId }) => {
             <div className="order-buttons">
               <button className="download-button" onClick={() => generatePDF(order)}>
                 Download PDF
+              </button>
+            </div>
+            <div className="order-buttons">
+              {/* View Order Details Button */}
+              <button 
+                className="view-order-button"
+                onClick={() => navigate(`/order/${order._id}`)}
+              >
+                View Order Details
               </button>
             </div>
           </div>

@@ -1,22 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import '../css/SubmitReviewPage.css';
 
 const SubmitReviewPage = () => {
   const { productId } = useParams();
-  const [userId, setUserId] = useState(null);
+
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
-
-  useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    if (storedUser && storedUser.userId) {
-      setUserId(storedUser.userId);
-      console.log(" User ID found:", storedUser.userId);
-    } else {
-      console.error(" User ID not found in localStorage.");
-    }
-  }, []);
+  
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const userId = storedUser?.user?.id || null;
+  
 
   const handleSubmitReview = async () => {
     console.log("Submitting review with data:", { productId, rating, comment, userId });
@@ -33,7 +27,7 @@ const SubmitReviewPage = () => {
           productId, 
           rating, 
           comment, 
-          userId // Ensure userId is passed
+          userId 
         }),
       });
   

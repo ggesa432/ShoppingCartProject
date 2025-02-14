@@ -51,6 +51,19 @@ router.put('/cancel/:id', async (req, res) => {
   }
 });
 
+router.get('/details/:orderId', async (req, res) => {
+  try {
+    const order = await Order.findById(req.params.orderId);
+    if (!order) {
+      return res.status(404).json({ message: 'Order not found' });
+    }
+    res.status(200).json(order);
+  } catch (error) {
+    console.error('Error fetching order details:', error.message);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // Reorder endpoint
 router.post('/reorder', async (req, res) => {
     const { userId, orderId, merge } = req.body;

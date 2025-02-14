@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState , useCallback} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useNotification } from '../components/NotificationContext';
 import '../css/CartPage.css';
 
-const CartPage = ({ userId }) => {
+const CartPage = ({ userId: propUserId }) => {
   const [cart, setCart] = useState([]);
   const navigate = useNavigate();
   const { addNotification } = useNotification();
   
+  // Ensure userId is correctly fetched from localStorage
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const userId = propUserId || storedUser?.user?.id;
 
   useEffect(() => {
     if (!userId) {
@@ -15,7 +18,6 @@ const CartPage = ({ userId }) => {
       return;
     }
 
-    console.log(`Fetching cart for userId: ${userId}`);
 
     const fetchCart = async () => {
       try {
@@ -37,7 +39,7 @@ const CartPage = ({ userId }) => {
   
 
   //  Prevent infinite loop by ensuring the function only runs when dependencies change
-  useEffect(() => {
+  const notifyCartStatus = useCallback(() => {
     if (cart.length > 0) {
       const notifiedKey = `notified_cart_${userId}`;
       const hasNotified = localStorage.getItem(notifiedKey);
@@ -58,6 +60,9 @@ const CartPage = ({ userId }) => {
       localStorage.removeItem(`notified_cart_${userId}`);
     }
   }, [cart.length, userId, addNotification]);
+  useEffect(() => {
+    notifyCartStatus();
+  }, [notifyCartStatus]);
 
   const removeItem = async (productId) => {
     try {

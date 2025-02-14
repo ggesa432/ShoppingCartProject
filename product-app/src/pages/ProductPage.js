@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import ProductForm from '../components/ProductForm';
 import ProductList from '../components/ProductList';
 import { useNotification } from '../components/NotificationContext';
 import '../css/ProductPage.css';
 
-const ProductPage = ({ user }) => {
+const ProductPage = () => {
   const [products, setProducts] = useState([]);
   const { addNotification } = useNotification();
 
+  const storedUser = useMemo(() => JSON.parse(localStorage.getItem("user")), []);
+  const user = useMemo(() => storedUser?.user || {}, [storedUser]);
+
 
   useEffect(() => {
-    if (user) {
+    if (user?.role) {
       //  Check if the notification was already sent
       const hasNotified = localStorage.getItem(`notified_product_${user._id}`);
       
@@ -26,7 +29,7 @@ const ProductPage = ({ user }) => {
         localStorage.setItem(`notified_product_${user._id}`, 'true');
       }
     }
-  }, [user, addNotification]);
+  }, [user.role, user._id, addNotification]);
 
   //  Fetch Products
   useEffect(() => {
@@ -45,7 +48,7 @@ const ProductPage = ({ user }) => {
     };
 
     fetchProducts();
-  }, []);
+  }, [storedUser, user.role]);
 
   //  Add Product (Admin Only)
   const addProduct = async (newProduct) => {
@@ -77,7 +80,7 @@ const ProductPage = ({ user }) => {
   //  Add to Cart
   const addToCart = async (product) => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
-    const userId = storedUser?.userId || 'guest';  // ✅ Use correct userId
+    const userId = storedUser?.user?.id || 'guest';  
 
     console.log(`🛒 Adding to cart for userId: ${userId}`);
     try {

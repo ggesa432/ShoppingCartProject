@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import '../css/CheckoutPage.css';
 import { useNotification } from '../components/NotificationContext';
 
-const CheckoutPage = ({ userId }) => {
+const CheckoutPage = ({ userId: propUserId  }) => {
   const location = useLocation();
   const cart = useMemo(() => location.state?.cart || [], [location.state?.cart]);
 
@@ -16,6 +16,9 @@ const CheckoutPage = ({ userId }) => {
   const [isPaymentMade, setIsPaymentMade] = useState(false);
   const { addNotification } = useNotification();
   const [loading, setLoading] = useState(true); 
+
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const userId = propUserId || storedUser?.user?.id;
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -30,7 +33,7 @@ const CheckoutPage = ({ userId }) => {
       } catch (error) {
         console.error('Error fetching user details:', error.message);
       } finally {
-        setLoading(false); // ✅ Stop Loading
+        setLoading(false); 
       }
     };
 
@@ -115,7 +118,7 @@ const CheckoutPage = ({ userId }) => {
           userId,
           message: `Payment successful for order #${orderId}!`,
           type: 'dynamic',
-          link: `/orders/${orderId}`
+          link: `/order/${orderId}`
         });
 
         setIsPaymentMade(true);

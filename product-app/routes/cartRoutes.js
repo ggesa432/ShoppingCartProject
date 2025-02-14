@@ -11,6 +11,10 @@ const router = express.Router();
 router.post('/add', async (req, res) => {
   const { userId, productId, name, price, quantity, category, description } = req.body;
 
+  if (!userId || userId === "guest") {
+    return res.status(400).json({ error: "You must log in to add items to the cart" });
+}
+
   try {
     let cart = await Cart.findOne({ userId });
 
@@ -39,11 +43,8 @@ router.post('/add', async (req, res) => {
 // Fetch cart items
 router.get('/:userId', async (req, res) => {
   try {
-    if (req.user.id !== req.params.userId) {
-      return res.status(403).json({ message: 'Unauthorized' });
-    }
-
-     const { userId } = req.params;
+    const { userId } = req.params;
+  
     const cart = await Cart.findOne({ userId });
     if (cart) {
       res.status(200).json(cart);

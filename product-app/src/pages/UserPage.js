@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import '../css/UserPage.css';
 
-const UserPage = ({ user }) => {
+const UserPage = ({ userId: propUserId }) => {
   const [userDetails, setUserDetails] = useState(null);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
 
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const userId = propUserId || storedUser?.user?.id;
   useEffect(() => {
+
     const fetchUserDetails = async () => {
       // Validate user and userId
-      if (!user || !user.userId) {
+      if (!userId ) {
         setError('User ID is not available. Please log in again.');
         return;
       }
 
-      console.log('Fetching details for user ID:', user.userId);
 
       try {
-        const response = await fetch(`http://localhost:5000/api/user/${user.userId}`); // Use user.userId
+        const response = await fetch(`http://localhost:5000/api/user/${userId}`); 
         if (response.ok) {
           const data = await response.json();
-          console.log('Fetched user details:', data);
           setUserDetails(data);
         } else {
           console.error('Failed to fetch user details. Status:', response.status);
@@ -33,7 +34,7 @@ const UserPage = ({ user }) => {
     };
 
     fetchUserDetails();
-  }, [user]);
+  }, [userId]);
 
   if (error) {
     return <p>{error}</p>;

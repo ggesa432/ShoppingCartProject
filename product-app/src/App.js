@@ -12,6 +12,7 @@ import ReorderPage from './pages/ReorderPage';
 import ReviewsPage from './pages/ReviewsPage';
 import SubmitReviewPage from './pages/SubmitReviewPage';
 import ProductReviewPage from './pages/ProductReviewPage';
+import OrderDetailsPage from './pages/OrderDetailsPage';
 //import Notification from './components/Notification';
 import { NotificationProvider } from './components/NotificationContext';
 
@@ -57,6 +58,7 @@ const App = () => {
           <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="/submit-review/:orderId/:productId" element={<SubmitReviewPage user={user} />} />
           <Route path="/reviews/:productId" element={<ProductReviewPage />} />
+          <Route path="/order/:orderId" element={<OrderDetailsPage />} />
           
         
         </Routes>
