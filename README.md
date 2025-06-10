@@ -91,11 +91,6 @@ A full-stack MERN (MongoDB, Express.js, React, Node.js) based shopping cart appl
    npm start
    ```
 
-## 📷 Screenshots
-
-| Product Page | Cart Page | Checkout Page |
-|--------------|-----------|----------------|
-| ![Product](./screenshots/product-page.png) | ![Cart](./screenshots/cart-page.png) | ![Checkout](./screenshots/checkout-page.png) |
 
 ## ✍️ Author
 
