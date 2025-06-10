@@ -1,126 +1,107 @@
-🛍️ E-Commerce Checkout & Review Web Application
+# 🛍️ E-Commerce Checkout & Review Web Application
+
 A full-stack MERN (MongoDB, Express.js, React, Node.js) based shopping cart application with features including product management, user authentication, cart and checkout functionality, order tracking, PDF generation, coupon validation, and product reviews.
 
-📌 Features
-✅ User Functionality
-Register/Login with JWT-based authentication
+## 📌 Features
 
-Browse available products
+### ✅ User Functionality
+- Register/Login with JWT-based authentication
+- Browse available products
+- Add to cart and view real-time cart updates
+- Apply coupon codes at checkout
+- Secure checkout and payment simulation
+- View recent orders with PDF download option
+- Submit and browse product reviews
 
-Add to cart and view real-time cart updates
+### 🛠️ Admin Functionality
+- Add new products
+- Manage orders
+- View user details
 
-Apply coupon codes at checkout
+### 🧾 Extra Features
+- Dynamic and static notification system
+- PDF invoice generation using jsPDF
+- Responsive and modular React UI
+- Reorder functionality
+- Role-based access control
 
-Secure checkout and payment simulation
+## 🧰 Tech Stack
 
-View recent orders with PDF download option
+### 🔹 Frontend
+- React.js (with Hooks and Context API)
+- React Router
+- Vanilla JavaScript (ES6)
+- HTML5, CSS3
 
-Submit and browse product reviews
+### 🔹 Backend
+- Node.js
+- Express.js
+- MongoDB (with Mongoose)
+- RESTful APIs
+- JWT Authentication
 
-🛠️ Admin Functionality
-Add new products
+### 🔹 Libraries & Tools
+- jsPDF (for PDF generation)
+- bcrypt (for password hashing)
+- nodemon, dotenv, cors
+- React Icons, ESLint
 
-Manage orders
+## ⚙️ Installation & Setup
 
-View user details
+### Prerequisites
+- Node.js & npm
+- MongoDB running locally or via Atlas
 
-🧾 Extra Features
-Dynamic and static notification system
+### Steps
 
-PDF invoice generation using jsPDF
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/shopping-cart-app.git
+   cd shopping-cart-app
+   ```
 
-Responsive and modular React UI
+2. **Install backend dependencies**
+   ```bash
+   cd server
+   npm install
+   ```
 
-Reorder functionality
+3. **Install frontend dependencies**
+   ```bash
+   cd client
+   npm install
+   ```
 
-Role-based access control
+4. **Create `.env` file in `/server`**
+   ```
+   PORT=5000
+   MONGO_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   ```
 
-🧰 Tech Stack
-🔹 Frontend
-React.js (with Hooks and Context API)
+5. **Start the backend**
+   ```bash
+   cd server
+   npm run dev
+   ```
 
-React Router
+6. **Start the frontend**
+   ```bash
+   cd client
+   npm start
+   ```
 
-Vanilla JavaScript (ES6)
+## 📷 Screenshots
 
-HTML5, CSS3
+| Product Page | Cart Page | Checkout Page |
+|--------------|-----------|----------------|
+| ![Product](./screenshots/product-page.png) | ![Cart](./screenshots/cart-page.png) | ![Checkout](./screenshots/checkout-page.png) |
 
-🔹 Backend
-Node.js
+## ✍️ Author
 
-Express.js
+**GesangZeren**  
+[LinkedIn](https://www.linkedin.com/in/gesang-zeren-aaa8392b0) • [GitHub](https://github.com/ggesa432) • [Email](mailto:ggesa432@gmail.com)
 
-MongoDB (with Mongoose)
+## 📃 License
 
-RESTful APIs
-
-JWT Authentication
-
-🔹 Libraries & Tools
-jsPDF (for PDF generation)
-
-bcrypt (for password hashing)
-
-nodemon, dotenv, cors
-
-React Icons, ESLint
-
-⚙️ Installation & Setup
-Prerequisites
-Node.js & npm
-
-MongoDB running locally or via Atlas
-
-Steps
-Clone the repository
-
-bash
-复制
-编辑
-git clone https://github.com/yourusername/shopping-cart-app.git
-cd shopping-cart-app
-Install backend dependencies
-
-bash
-复制
-编辑
-cd server
-npm install
-Install frontend dependencies
-
-bash
-复制
-编辑
-cd client
-npm install
-Create .env file in /server
-
-ini
-复制
-编辑
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-Start the backend
-
-bash
-复制
-编辑
-cd server
-npm run dev
-Start the frontend
-
-bash
-复制
-编辑
-cd client
-npm start
-📷 Screenshots
-Product Page	Cart Page	Checkout Page
-
-✍️ Author
-Your Name
-LinkedIn • GitHub • Email
-
-📃 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
